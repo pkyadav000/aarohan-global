@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Register - Aarohan Global</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="app-header">
+
+        <h2>
+            AAROHAN GLOBAL
+        </h2>
+
+
+        <a
+            href="index.html"
+            style="
+                color:#38bdf8;
+                text-decoration:none;
+                font-weight:bold;
+                font-size:14px;
+            "
+        >
+            ← Back to Login
+        </a>
+
+    </header>
+
+
+
+    <main
+        class="container"
+        style="margin-top:20px;"
+    >
+
+
+        <!-- REGISTER CARD -->
+
+        <div class="card">
+
+
+            <div
+                class="logo"
+                style="margin-bottom:8px;"
+            >
+                Aarohan Global
+            </div>
+
+
+            <h3
+                style="
+                    font-size:18px;
+                    margin-bottom:4px;
+                "
+            >
+                Create New Account
+            </h3>
+
+
+            <p
+                style="
+                    color:#94a3b8;
+                    font-size:12px;
+                    margin-bottom:20px;
+                "
+            >
+                Fill your details to generate your unique Member ID
+            </p>
+
+
+
+            <!-- REGISTRATION FORM -->
+
+            <form
+                id="registerForm"
+                onsubmit="return handleUserRegister(event)"
+            >
+
+
+                <!-- SPONSOR -->
+
+                <label
+                    for="regSponsor"
+                    style="
+                        font-size:12px;
+                        color:#cbd5e1;
+                        display:block;
+                    "
+                >
+                    Sponsor / Referral ID:
+                </label>
+
+
+                <input
+                    type="text"
+                    id="regSponsor"
+                    placeholder="Enter Sponsor ID"
+                    value="AG1001"
+                    autocomplete="off"
+                    required
+                >
+
+
+
+                <!-- NAME -->
+
+                <label
+                    for="regName"
+                    style="
+                        font-size:12px;
+                        color:#cbd5e1;
+                        display:block;
+                    "
+                >
+                    Full Name:
+                </label>
+
+
+                <input
+                    type="text"
+                    id="regName"
+                    placeholder="Enter Full Name"
+                    autocomplete="name"
+                    minlength="2"
+                    required
+                >
+
+
+
+                <!-- MOBILE -->
+
+                <label
+                    for="regMobile"
+                    style="
+                        font-size:12px;
+                        color:#cbd5e1;
+                        display:block;
+                    "
+                >
+                    Mobile Number:
+                </label>
+
+
+                <input
+                    type="tel"
+                    id="regMobile"
+                    placeholder="Enter 10 Digit Mobile"
+                    pattern="[0-9]{10}"
+                    maxlength="10"
+                    inputmode="numeric"
+                    autocomplete="tel"
+                    required
+                >
+
+
+
+                <!-- PASSWORD -->
+
+                <label
+                    for="regPassword"
+                    style="
+                        font-size:12px;
+                        color:#cbd5e1;
+                        display:block;
+                    "
+                >
+                    Password:
+                </label>
+
+
+                <input
+                    type="password"
+                    id="regPassword"
+                    placeholder="Create Password (min 6 characters)"
+                    minlength="6"
+                    autocomplete="new-password"
+                    required
+                >
+
+
+
+                <!-- REGISTER BUTTON -->
+
+                <button
+                    type="submit"
+                    class="btn btn-success"
+                    style="margin-top:10px;"
+                >
+                    Register Now
+                </button>
+
+            </form>
+
+
+
+            <hr
+                style="
+                    border:0;
+                    border-top:1px solid #1e293b;
+                    margin:20px 0;
+                "
+            >
+
+
+
+            <!-- LOGIN LINK -->
+
+            <p
+                style="
+                    text-align:center;
+                    font-size:13px;
+                    color:#cbd5e1;
+                "
+            >
+
+                Already have an ID?
+
+                <a
+                    href="index.html"
+                    style="
+                        color:#38bdf8;
+                        font-weight:bold;
+                        text-decoration:none;
+                    "
+                >
+                    Login Here
+                </a>
+
+            </p>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- MAIN ENGINE -->
+
+    <script src="main.js"></script>
+
+
+
+    <!-- REFERRAL URL HANDLER -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const urlParams =
+                    new URLSearchParams(
+                        window.location.search
+                    );
+
+
+                const ref =
+                    urlParams.get("ref");
+
+
+                const sponsorInput =
+                    document.getElementById(
+                        "regSponsor"
+                    );
+
+
+                if (
+                    ref &&
+                    sponsorInput
+                ) {
+
+                    sponsorInput.value =
+                        ref
+                            .trim()
+                            .toUpperCase();
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Team - Aarohan Global</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="app-header">
+
+        <h2>
+            AAROHAN GLOBAL
+        </h2>
+
+
+        <a
+            href="dashboard.html"
+            style="
+                color:#38bdf8;
+                text-decoration:none;
+                font-weight:bold;
+                font-size:14px;
+            "
+        >
+            ← Back to Dashboard
+        </a>
+
+    </header>
+
+
+
+    <main class="container">
+
+
+        <!-- TEAM SUMMARY -->
+
+        <div class="card grid-2">
+
+            <div>
+
+                <div class="stat-label">
+                    Total Downline
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="totalTeamCount"
+                >
+                    0 Members
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="stat-label">
+                    Direct Referrals
+                </div>
+
+                <div
+                    class="stat-value green"
+                    id="directTeamCount"
+                >
+                    0
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TEAM INFORMATION -->
+
+        <div class="card">
+
+            <h3
+                style="
+                    font-size:15px;
+                    color:#38bdf8;
+                    margin-bottom:8px;
+                "
+            >
+                📊 Team Structure
+            </h3>
+
+
+            <p
+                style="
+                    font-size:12px;
+                    color:#cbd5e1;
+                "
+            >
+                Your direct referrals and team members will
+                appear below.
+            </p>
+
+
+            <p
+                style="
+                    font-size:11px;
+                    color:#64748b;
+                    margin-top:8px;
+                "
+            >
+                Commission rules should be configured only
+                after the business model has been legally reviewed.
+            </p>
+
+        </div>
+
+
+
+        <!-- TEAM TABLE -->
+
+        <div class="card">
+
+            <h3
+                style="
+                    font-size:16px;
+                    margin-bottom:10px;
+                "
+            >
+                👥 My Team
+            </h3>
+
+
+            <div style="overflow-x:auto;">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                User ID
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Package
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="teamTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="4"
+                                style="
+                                    text-align:center;
+                                    color:#64748b;
+                                "
+                            >
+                                Loading team data...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- MAIN ENGINE -->
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>

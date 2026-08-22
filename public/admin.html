@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Panel - Aarohan Global</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="app-header">
+
+        <h2>
+            ADMIN CONTROL PANEL
+        </h2>
+
+
+        <div>
+
+            <a
+                href="dashboard.html"
+                style="
+                    color:#38bdf8;
+                    text-decoration:none;
+                    font-weight:bold;
+                    font-size:13px;
+                    margin-right:12px;
+                "
+            >
+                Dashboard
+            </a>
+
+
+            <a
+                href="index.html"
+                style="
+                    color:#ef4444;
+                    text-decoration:none;
+                    font-weight:bold;
+                    font-size:13px;
+                "
+            >
+                Logout
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="container">
+
+
+        <!-- =================================================
+             ADMIN SUMMARY
+        ================================================== -->
+
+        <div class="card grid-2">
+
+
+            <!-- TOTAL APPROVED DEPOSITS -->
+
+            <div>
+
+                <div class="stat-label">
+
+                    Total Approved Deposits
+
+                </div>
+
+
+                <!-- IMPORTANT:
+                     ID MUST MATCH main.js
+                -->
+
+                <div
+                    class="stat-value green"
+                    id="totalApprovedDeposits"
+                >
+                    ₹0.00
+                </div>
+
+            </div>
+
+
+
+            <!-- PENDING REQUESTS -->
+
+            <div>
+
+                <div class="stat-label">
+
+                    Pending Requests
+
+                </div>
+
+
+                <!-- IMPORTANT:
+                     ID MUST MATCH main.js
+                -->
+
+                <div
+                    class="stat-value"
+                    id="pendingDepositCount"
+                    style="color:#f59e0b;"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+        </div>
+
+<!-- =================================================
+     USER MANAGEMENT
+================================================== -->
+
+<div class="card">
+
+    <h3
+        style="
+            font-size:18px;
+            color:#38bdf8;
+            margin-bottom:5px;
+        "
+    >
+        👥 User Management
+    </h3>
+
+    <p
+        style="
+            color:#94a3b8;
+            font-size:12px;
+            margin-bottom:15px;
+        "
+    >
+        Search members, view account details and manage account status.
+    </p>
+
+    <!-- USER SEARCH -->
+
+    <input
+        type="text"
+        id="adminUserSearch"
+        placeholder="Search User ID, Name or Mobile"
+        autocomplete="off"
+        oninput="renderAdminUsers()"
+    >
+
+    <!-- USER SUMMARY -->
+
+    <div
+        class="grid-2"
+        style="margin-top:10px;"
+    >
+
+        <div
+            style="
+                background:#0f172a;
+                border:1px solid #334155;
+                border-radius:12px;
+                padding:15px;
+            "
+        >
+
+            <div class="stat-label">
+                Total Users
+            </div>
+
+            <div
+                id="adminTotalUsers"
+                class="stat-value"
+            >
+                0
+            </div>
+
+        </div>
+
+
+        <div
+            style="
+                background:#0f172a;
+                border:1px solid #334155;
+                border-radius:12px;
+                padding:15px;
+            "
+        >
+
+            <div class="stat-label">
+                Active Users
+            </div>
+
+            <div
+                id="adminActiveUsers"
+                class="stat-value green"
+            >
+                0
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- USER LIST -->
+
+    <div
+        style="
+            overflow-x:auto;
+            margin-top:15px;
+        "
+    >
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>User ID</th>
+
+                    <th>Name</th>
+
+                    <th>Mobile</th>
+
+                    <th>Package</th>
+
+                    <th>Wallet</th>
+
+                    <th>Status</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="adminUserTableBody">
+
+                <tr>
+
+                    <td
+                        colspan="7"
+                        style="
+                            text-align:center;
+                            color:#64748b;
+                        "
+                    >
+                        Loading users...
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+        <!-- =================================================
+             DEPOSIT APPROVALS
+        ================================================== -->
+
+        <div class="card">
+
+
+            <h3
+                style="
+                    font-size:16px;
+                    color:#38bdf8;
+                    margin-bottom:4px;
+                "
+            >
+                💳 Pending Deposit Requests
+            </h3>
+
+
+            <p
+                style="
+                    color:#94a3b8;
+                    font-size:12px;
+                    margin-bottom:10px;
+                "
+            >
+                Verify payment reference and approve manually.
+            </p>
+
+
+            <!-- MAIN.JS RENDERS DEPOSITS HERE -->
+
+            <div id="adminDepositList">
+
+                <p
+                    style="
+                        text-align:center;
+                        color:#64748b;
+                        font-size:13px;
+                    "
+                >
+                    Loading...
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             WITHDRAWAL APPROVALS
+        ================================================== -->
+
+        <div class="card">
+
+
+            <h3
+                style="
+                    font-size:16px;
+                    color:#38bdf8;
+                    margin-bottom:4px;
+                "
+            >
+                💸 Pending Withdrawal Requests
+            </h3>
+
+
+            <p
+                style="
+                    color:#94a3b8;
+                    font-size:12px;
+                    margin-bottom:10px;
+                "
+            >
+                Review withdrawal requests before processing.
+            </p>
+
+
+            <!-- MAIN.JS RENDERS WITHDRAWALS HERE -->
+
+            <div id="adminWithdrawList">
+
+                <p
+                    style="
+                        text-align:center;
+                        color:#64748b;
+                        font-size:13px;
+                    "
+                >
+                    Loading...
+                </p>
+
+            </div>
+
+
+        </div>
+
+<!-- =================================================
+     TRANSACTION LEDGER
+================================================== -->
+
+<div class="card">
+
+    <h3
+        style="
+            font-size:18px;
+            color:#38bdf8;
+            margin-bottom:5px;
+        "
+    >
+        📒 Transaction Ledger
+    </h3>
+
+    <p
+        style="
+            color:#94a3b8;
+            font-size:12px;
+            margin-bottom:15px;
+        "
+    >
+        View all deposits, withdrawals, ROI, bonuses and wallet transactions.
+    </p>
+
+    <!-- SEARCH -->
+
+    <input
+        type="text"
+        id="ledgerSearch"
+        placeholder="Search User ID, Type or Status"
+        autocomplete="off"
+        oninput="renderTransactionLedger()"
+    >
+
+    <!-- FILTER -->
+
+    <select
+        id="ledgerTypeFilter"
+        onchange="renderTransactionLedger()"
+        style="
+            width:100%;
+            margin-top:10px;
+        "
+    >
+
+        <option value="ALL">
+            All Transactions
+        </option>
+
+        <option value="DEPOSIT">
+            Deposit
+        </option>
+
+        <option value="WITHDRAWAL">
+            Withdrawal
+        </option>
+
+        <option value="ROI">
+            ROI
+        </option>
+
+        <option value="DIRECT_BONUS">
+            Direct Bonus
+        </option>
+
+        <option value="TEAM_ROI">
+            Team Commission
+        </option>
+
+        <option value="WALLET_CREDIT">
+            Wallet Credit
+        </option>
+
+    </select>
+
+
+    <!-- LEDGER TABLE -->
+
+    <div
+        style="
+            overflow-x:auto;
+            margin-top:15px;
+        "
+    >
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Date</th>
+
+                    <th>User ID</th>
+
+                    <th>Type</th>
+
+                    <th>Amount</th>
+
+                    <th>Status</th>
+
+                    <th>Details</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="transactionLedgerBody">
+
+                <tr>
+
+                    <td
+                        colspan="6"
+                        style="
+                            text-align:center;
+                            color:#64748b;
+                            padding:20px;
+                        "
+                    >
+                        Loading transactions...
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- TEST WALLET CREDIT -->
+
+<div class="card">
+
+    <h2 style="
+        color:#22c55e;
+        margin-bottom:10px;
+        font-size:20px;
+    ">
+        💰 Test Wallet Credit
+    </h2>
+
+    <p style="
+        color:#94a3b8;
+        font-size:13px;
+        margin-bottom:15px;
+    ">
+        Admin can add test balance to a member wallet.
+    </p>
+
+    <input
+        type="text"
+        id="adminCreditUserId"
+        placeholder="Enter User ID e.g. AG1002"
+        autocomplete="off"
+    >
+
+    <input
+        type="number"
+        id="adminCreditAmount"
+        placeholder="Enter Amount"
+        min="1"
+        step="1"
+    >
+
+    <button
+        type="button"
+        onclick="adminCreditWallet()"
+        class="btn btn-success"
+    >
+        💰 Add Test Balance
+    </button>
+
+</div>
+
+        <!-- =================================================
+             SYSTEM INFORMATION
+        ================================================== -->
+
+        <div class="card">
+
+
+            <h3
+                style="
+                    font-size:16px;
+                    margin-bottom:8px;
+                "
+            >
+                ⚙️ System Information
+            </h3>
+
+
+            <p
+                style="
+                    color:#94a3b8;
+                    font-size:12px;
+                    line-height:1.7;
+                "
+            >
+
+                Minimum withdrawal limit:
+
+                <b style="color:#f8fafc;">
+                    ₹750
+                </b>
+
+                <br>
+
+
+                Deposit requests:
+
+                <b style="color:#f8fafc;">
+                    Manual Approval
+                </b>
+
+                <br>
+
+
+                Withdrawal requests:
+
+                <b style="color:#f8fafc;">
+                    Manual Review
+                </b>
+
+            </p>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         MAIN JAVASCRIPT ENGINE
+    ====================================================== -->
+
+    <script src="main.js"></script>
+
+
+</body>
+
+</html>

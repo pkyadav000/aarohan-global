@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Passbook History - Aarohan Global</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="app-header">
+
+        <h2>
+            AAROHAN GLOBAL
+        </h2>
+
+
+        <a
+            href="dashboard.html"
+            style="
+                color:#38bdf8;
+                text-decoration:none;
+                font-weight:bold;
+                font-size:14px;
+            "
+        >
+            ← Back to Dashboard
+        </a>
+
+    </header>
+
+
+
+    <main class="container">
+
+
+        <!-- SUMMARY -->
+
+        <div class="card">
+
+            <h3
+                style="
+                    font-size:16px;
+                    color:#38bdf8;
+                    margin-bottom:4px;
+                "
+            >
+                Wallet Statement & Passbook
+            </h3>
+
+
+            <p
+                style="
+                    color:#94a3b8;
+                    font-size:12px;
+                "
+            >
+                Deposits, withdrawals and testing earnings
+            </p>
+
+        </div>
+
+
+
+        <!-- TRANSACTION TABLE -->
+
+        <div class="card">
+
+            <h3
+                style="
+                    font-size:16px;
+                    margin-bottom:10px;
+                "
+            >
+                📋 Transaction History
+            </h3>
+
+
+            <div style="overflow-x:auto;">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Type
+                            </th>
+
+                            <th>
+                                Amount
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="historyTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="4"
+                                style="
+                                    text-align:center;
+                                    color:#64748b;
+                                    padding:15px;
+                                "
+                            >
+                                Loading statement...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- MAIN ENGINE -->
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>

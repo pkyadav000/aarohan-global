@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Deposit - Aarohan Global</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="app-header">
+
+        <h2>
+            AAROHAN GLOBAL
+        </h2>
+
+
+        <a
+            href="dashboard.html"
+            style="
+                color:#38bdf8;
+                text-decoration:none;
+                font-weight:bold;
+                font-size:14px;
+            "
+        >
+            ← Back to Dashboard
+        </a>
+
+    </header>
+
+
+
+    <main class="container">
+
+
+        <!-- PACKAGE SELECTION -->
+
+        <div class="card">
+
+            <h3
+                style="
+                    font-size:16px;
+                    color:#38bdf8;
+                    margin-bottom:8px;
+                "
+            >
+                1. Select Package
+            </h3>
+
+
+            <select
+                id="packageSelect"
+                style="margin-bottom:0;"
+            >
+
+                <option value="999">
+                    Starter - ₹999
+                </option>
+
+                <option value="1999">
+                    Silver - ₹1,999
+                </option>
+
+                <option value="4999">
+                    Gold - ₹4,999
+                </option>
+
+                <option value="9999">
+                    Diamond - ₹9,999
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- PAYMENT DETAILS -->
+
+        <div
+            class="card"
+            style="text-align:center;"
+        >
+
+            <h3
+                style="
+                    font-size:16px;
+                    margin-bottom:10px;
+                "
+            >
+                2. Payment Details
+            </h3>
+
+
+            <div
+                style="
+                    background:#ffffff;
+                    width:180px;
+                    height:180px;
+                    margin:15px auto;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    color:#0f172a;
+                    border-radius:12px;
+                    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+                "
+            >
+
+                <span style="font-size:40px;">
+                    📱
+                </span>
+
+                <b
+                    style="
+                        font-size:12px;
+                        margin-top:5px;
+                    "
+                >
+                    QR CODE
+                </b>
+
+            </div>
+
+
+            <p
+                style="
+                    font-size:14px;
+                    margin-top:8px;
+                "
+            >
+
+                <b>UPI ID:</b>
+
+                <span style="color:#38bdf8;">
+                    aarohanglobal@upi
+                </span>
+
+            </p>
+
+
+            <p
+                style="
+                    font-size:11px;
+                    color:#94a3b8;
+                    margin-top:4px;
+                "
+            >
+                Use your verified payment account details here.
+            </p>
+
+        </div>
+
+
+
+        <!-- PAYMENT PROOF -->
+
+        <div class="card">
+
+            <h3
+                style="
+                    font-size:16px;
+                    color:#38bdf8;
+                    margin-bottom:8px;
+                "
+            >
+                3. Submit Payment Proof
+            </h3>
+
+
+            <p
+                style="
+                    font-size:12px;
+                    color:#94a3b8;
+                    margin-bottom:8px;
+                "
+            >
+                Enter the UTR / Transaction ID after payment.
+            </p>
+
+
+            <input
+                type="text"
+                id="modalUtrInput"
+                placeholder="Enter UTR / Transaction ID"
+                minlength="6"
+                autocomplete="off"
+                required
+            >
+
+
+            <button
+                class="btn btn-success"
+                onclick="handleDepositSubmit()"
+                style="margin-top:10px;"
+            >
+                Submit for Admin Approval
+            </button>
+
+
+            <p
+                id="depositMsg"
+                style="
+                    text-align:center;
+                    font-size:12px;
+                    margin-top:10px;
+                "
+            ></p>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- MAIN ENGINE -->
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>

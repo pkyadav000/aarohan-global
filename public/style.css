@@ -1,0 +1,635 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0b0f19;
+    color: #f8fafc;
+    min-height: 100vh;
+    padding-bottom: 30px;
+}
+
+/* Header Styling */
+.app-header, .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #312e81;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.logo, .app-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+/* Container & Cards Layout */
+.container {
+    padding: 15px;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.card {
+    background: linear-gradient(145deg, #131c31 0%, #0f172a 100%);
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Stats Styling */
+.stat-label {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #38bdf8;
+}
+
+.stat-value.green {
+    color: #22c55e;
+}
+
+/* Capping Progress Bar */
+.progress-bg {
+    background: #1e293b;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #38bdf8, #22c55e);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Package Grid & Cards */
+.pkg-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.pkg-card {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 14px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.pkg-card:active {
+    transform: scale(0.97);
+}
+
+.pkg-card.starter { border-top: 3px solid #38bdf8; }
+.pkg-card.silver { border-top: 3px solid #facc15; }
+.pkg-card.gold { border-top: 3px solid #f472b6; }
+.pkg-card.diamond { border-top: 3px solid #c084fc; }
+
+.pkg-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #38bdf8;
+    margin-bottom: 4px;
+}
+
+.pkg-price {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 6px 0;
+}
+
+.pkg-roi {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-bottom: 10px;
+}
+
+/* Badges */
+.badge {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.badge.active { background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid #22c55e; }
+.badge.inactive { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+
+/* Buttons & Form Elements */
+.btn {
+    width: 100%;
+    border: none;
+    padding: 11px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.btn:active {
+    opacity: 0.8;
+}
+
+.btn-primary { background: linear-gradient(90deg, #0284c7, #38bdf8); color: #fff; }
+.btn-success { background: linear-gradient(90deg, #16a34a, #22c55e); color: white; }
+.btn-outline { background: transparent; border: 1px solid #334155; color: white; }
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: #fff;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    outline: none;
+    font-size: 13px;
+}
+
+input:focus { border-color: #38bdf8; }
+
+/* Tables Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: left;
+}
+
+th {
+    color: #94a3b8;
+    padding: 8px;
+    border-bottom: 1px solid #1e293b;
+    font-weight: 600;
+}
+
+td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #0f172a;
+    color: #e2e8f0;
+}
+
+/* Modal Popup Window */
+#depositModal {
+    backdrop-filter: blur(5px);
+}
+/* =========================================================
+   AAROHAN GLOBAL - PREMIUM REGISTRATION SUCCESS POPUP
+   ========================================================= */
+
+#registrationSuccessPopup {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 999999 !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px;
+
+    background: rgba(2, 6, 23, 0.86);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* MAIN POPUP CARD */
+
+.registration-success-box {
+    width: 100%;
+    max-width: 360px;
+
+    padding: 24px 20px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111827 0%,
+            #0f172a 100%
+        );
+
+    border: 1px solid rgba(56, 189, 248, 0.28);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.65),
+        0 0 35px rgba(14, 165, 233, 0.10);
+
+    animation: premiumPopupIn .28s ease-out;
+}
+
+/* SUCCESS ICON */
+
+.success-icon {
+    width: 62px;
+    height: 62px;
+
+    margin: 0 auto 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #16a34a,
+            #22c55e
+        );
+
+    color: #fff;
+
+    font-size: 34px;
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 25px rgba(34, 197, 94, 0.35);
+}
+
+/* TITLE */
+
+.registration-success-box h2 {
+    margin: 0 0 8px;
+
+    color: #f8fafc;
+
+    font-size: 23px;
+    line-height: 1.2;
+
+    font-weight: 800;
+}
+
+/* DESCRIPTION */
+
+.success-subtitle {
+    margin: 0 auto 17px;
+
+    max-width: 290px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+/* MEMBER ID CARD */
+
+.member-id-box {
+    padding: 13px 12px;
+
+    margin: 12px 0 14px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 41, 59, .95),
+            rgba(15, 23, 42, .95)
+        );
+
+    border: 1px solid rgba(56, 189, 248, .25);
+}
+
+/* MEMBER ID LABEL */
+
+.member-id-box span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+/* MEMBER ID */
+
+.member-id-box strong {
+    display: block;
+
+    color: #38bdf8;
+
+    font-size: 25px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+/* SAVE MESSAGE */
+
+.save-note {
+    margin: 0 0 16px;
+
+    color: #cbd5e1;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+/* OK BUTTON */
+
+.registration-success-box button {
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 10px 16px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #06b6d4
+        );
+
+    color: #fff;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 22px rgba(37, 99, 235, .28);
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease;
+}
+
+.registration-success-box button:active {
+    transform: scale(.97);
+
+    box-shadow:
+        0 5px 15px rgba(37, 99, 235, .20);
+}
+
+/* POPUP ANIMATION */
+
+@keyframes premiumPopupIn {
+
+    from {
+        opacity: 0;
+        transform: scale(.94) translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+/* =========================================================
+   DIRECT REFERRAL STATUS
+   ========================================================= */
+
+.ref-status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.ref-status.active {
+    color: #4ade80;
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.ref-status.pending {
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+/* =========================================================
+   PREMIUM REFERRAL LINK - FINAL
+   ========================================================= */
+
+.referral-card {
+    background:
+        linear-gradient(
+            145deg,
+            #111827 0%,
+            #172033 100%
+        );
+
+    border: 1px solid rgba(56, 189, 248, 0.20);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 16px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.25);
+
+    overflow: hidden;
+}
+
+/* Heading */
+
+.referral-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.referral-icon {
+    font-size: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.referral-title {
+    color: #f8fafc;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.referral-subtitle {
+    color: #94a3b8;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+/* Referral Code */
+
+.referral-code-box {
+    width: 100%;
+
+    background:
+        rgba(56,189,248,.06);
+
+    border: 1px dashed #38bdf8;
+
+    border-radius: 14px;
+
+    padding: 13px 15px;
+
+    margin-bottom: 12px;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.referral-code-label {
+    display: block;
+
+    color: #64748b;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 5px;
+}
+
+.referral-code {
+    display: block;
+
+    color: #38bdf8;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    word-break: break-all;
+}
+
+/* Copy Button */
+
+.referral-copy-btn {
+    width: 100%;
+
+    min-height: 44px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    padding: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0ea5e9,
+            #0284c7
+        );
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(14,165,233,.20);
+
+    transition:
+        transform .15s ease,
+        opacity .15s ease;
+}
+
+.referral-copy-btn:active {
+    transform: scale(.98);
+    opacity: .9;
+}
+
+/* =========================================================
+   MOBILE WIDTH FIX
+   ========================================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.header {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.header > div {
+    min-width: 0;
+}
+
+.header .badge {
+    max-width: 145px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

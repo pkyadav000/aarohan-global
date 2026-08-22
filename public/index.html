@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aarohan Global - Login</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="app-header">
+
+        <h2>AAROHAN GLOBAL</h2>
+
+        <span class="badge active">
+            3X ROI
+        </span>
+
+    </header>
+
+
+    <!-- LOGIN AREA -->
+    <main class="container" style="margin-top:30px;">
+
+        <div class="card">
+
+            <h3 style="font-size:18px;margin-bottom:4px;">
+                User Login
+            </h3>
+
+            <p style="
+                color:#94a3b8;
+                font-size:12px;
+                margin-bottom:15px;
+            ">
+                Enter your User ID and Password to access your panel
+            </p>
+
+
+            <!-- LOGIN FORM -->
+            <form
+                id="loginForm"
+                onsubmit="return handleUserLogin(event)"
+            >
+
+                <!-- USER ID -->
+                <label
+                    for="loginUserId"
+                    style="
+                        font-size:12px;
+                        color:#cbd5e1;
+                        display:block;
+                    "
+                >
+                    User ID / Member ID:
+                </label>
+
+                <input
+                    type="text"
+                    id="loginUserId"
+                    placeholder="Enter User ID"
+                    autocomplete="username"
+                    required
+                >
+
+
+                <!-- PASSWORD -->
+                <label
+                    for="loginPassword"
+                    style="
+                        font-size:12px;
+                        color:#cbd5e1;
+                        display:block;
+                        margin-top:5px;
+                    "
+                >
+                    Password:
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter Password"
+                    autocomplete="current-password"
+                    required
+                >
+
+
+                <!-- LOGIN BUTTON -->
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    style="margin-top:15px;"
+                >
+                    Login to Dashboard
+                </button>
+
+            </form>
+
+
+            <!-- LOGIN MESSAGE -->
+            <p
+                id="loginMsg"
+                style="
+                    text-align:center;
+                    font-size:13px;
+                    margin-top:10px;
+                "
+            ></p>
+
+
+            <!-- DIVIDER -->
+            <hr style="
+                border:0;
+                border-top:1px solid #1e293b;
+                margin:20px 0;
+            ">
+
+
+            <!-- REGISTER -->
+            <p style="
+                text-align:center;
+                font-size:13px;
+                color:#cbd5e1;
+            ">
+
+                Don't have an ID?
+
+                <a
+                    href="register.html"
+                    style="
+                        color:#22c55e;
+                        font-weight:bold;
+                        text-decoration:none;
+                    "
+                >
+                    Create New Account
+                </a>
+
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- MAIN ENGINE -->
+    <script src="main.js"></script>
+
+</body>
+</html>
